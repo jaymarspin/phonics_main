@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/font-awesome/css/font-awesome.css";
+
+
+.main-wrapper{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    display: block;
+    height: 100%;
+    
+    
+}body{
+    background-color: #f5f5f5;
+}.container{
+    padding-top: 20px;
+}

@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<div class="container">
+        <div class="action-div">
+                <div class="alert alert-dark" role="alert">
+                       
+                        There are <strong> </strong> employees right now
+                    </div>
+         
+                <input id="search" [(ngModel)]="search" type="text" placeholder="Search Employee">
+                <i class="fa fa-search"></i>
+        
+        
+        </div>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>#</th>
+            <th>First Name </th>
+            <th>Last Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
