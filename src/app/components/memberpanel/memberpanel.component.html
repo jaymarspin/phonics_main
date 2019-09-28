@@ -30,7 +30,7 @@
              
             <td *ngIf="dater == item.dater && search == '' || search.toLowerCase() == item.customer.lname.toLowerCase() || search.toLowerCase() == item.customer.fname.toLowerCase()">{{item.customer.lname}}, {{item.customer.fname}}</td>
             <td *ngIf="dater == item.dater && search == '' || search.toLowerCase() == item.customer.lname.toLowerCase() || search.toLowerCase() == item.customer.fname.toLowerCase()">{{item.dater}}</td>
-            <td *ngIf="dater == item.dater && search == '' || search.toLowerCase() == item.customer.lname.toLowerCase() || search.toLowerCase() == item.customer.fname.toLowerCase()"><a href="/payments/{{item.customer.id}}"><button class="btn btn-danger"><i class="fa fa-dollar"></i>payments</button></a></td>
+            <td *ngIf="dater == item.dater && search == '' || search.toLowerCase() == item.customer.lname.toLowerCase() || search.toLowerCase() == item.customer.fname.toLowerCase()"> <button class="btn btn-danger" (click)="paymantNav(item.customer.id,item)"><i class="fa fa-dollar"></i>payments</button></td>
           </tr>
         
         </tbody>

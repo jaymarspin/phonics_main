@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GlobalService} from '../../services/global.service'
+import { Router} from '@angular/router';
 import * as $ from 'jquery'
 @Component({
   selector: 'app-memberpanel',
@@ -10,7 +11,7 @@ export class MemberpanelComponent implements OnInit {
   search:any
   dater:any
   
-  constructor(public method: GlobalService) {
+  constructor(public method: GlobalService,private router:Router) {
     this.search = ""
    }
 
@@ -30,6 +31,7 @@ export class MemberpanelComponent implements OnInit {
         }
         let res:any
        this.method.postData(data,"get-collectibles.php").subscribe(Response =>{
+        
          res = Response.json()
          console.log(res)
          
@@ -44,12 +46,21 @@ export class MemberpanelComponent implements OnInit {
        })
       }
     });
-    console.log("awdawd")
+    
    }else{
-    console.log("pass")
+   
    }
    
     
+  }
+  paymantNav(id,data){
+    
+    this.router.navigate(["/payments",id]).then(() =>{
+      this.method.customerData = data
+
+      window.localStorage.setItem("customer",JSON.stringify(data))
+         
+    })
   }
 
   dateChange(){

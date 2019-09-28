@@ -2,16 +2,22 @@
 <div class="container">
         <div id="cover-spin"></div>
             <div class="action-div">
-                    
-             
-                    
-                    <div class="alert alert-dark" role="alert">
-                           
-                      List of collection date <strong>{{dater}}</strong>
-                  </div>
-                   
+              <div class="alert alert-success" role="alert" *ngIf="method.customerData">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="fa fa-close"></i></button>
+                <h4 class="alert-heading">{{method.customerData.customer.lname}},{{method.customerData.customer.fname}}</h4>
+                
+                  <ul class="list-unstyled">
+                      <li>Balance: {{method.customerData.balance}}</li>
+                      <li>Product: {{method.customerData.productDetails.name}}</li>
+                      <li>Product Price: {{method.customerData.price.price}}</li>
+                      <li>Term: {{method.customerData.price.term}}</li>
+                      <li>Date Delivery: {{method.customerData.customer.date_sold}}</li>
+                    </ul>
+              </div>
+          
                   
             </div>
+            <h3>Payment History</h3>
         <table class="table">
             <thead class="thead-dark">
               <tr>
@@ -24,12 +30,21 @@
             <tbody>
               <tr *ngFor="let item of payments">
                  
-                <td >awdawd</td>
-                <td >awdawd</td>
-                <td >awdawd</td>
+                <td >{{item.amount}}</td>
+                <td >{{item.or}}</td>
+                <td >{{item.date_paid}}</td>
                 </tr>
             
             </tbody>
           </table>
+          <div class="row bottom-nav bg-primary">
+      
+              <ul class="list-inline text-light">
+                  
+                  <li class="list-inline-item">Update Status</li>
+                  <li class="list-inline-item">Reschedule</li>
+                  <li class="list-inline-item">Update Payment</li>
+                </ul>
+          </div>
     </div>
     

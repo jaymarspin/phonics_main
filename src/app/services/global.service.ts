@@ -10,7 +10,10 @@ export class GlobalService {
   positions:any
   id:any
   collectibles:any
+  customerData:any
   server: string = "http://192.168.1.50/phonics_server/client-script/"
+
+
   constructor(public router: Router,public auth:AuthServiceService,public http: Http) {
     this.positions = new Array()
    }

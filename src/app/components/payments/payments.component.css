@@ -3,7 +3,7 @@
     width: 100%;
     float: left;
     clear: both;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
  
     
 }.action-div input[type="text"]{
@@ -25,11 +25,44 @@
     display: none;
 }.alert{
     float: left;
+    width: 100%;
 }.search-wrapper{
     width: 100%;
     height: auto;
     clear: both;
     overflow: hidden;
+}.col-4{
+    padding: 5px;
+}.h3{
+    margin-bottom: 10px;
+    position: relative;
+    display: block;
+}.text-light{
+    position: relative;
+    left: 50%;
+    top: 5px;
+    font-size: 16px;
+    transform: translate(-50%,0)
+}.text-light li{
+    border-right: 1px solid #dedede;
+    padding-right: 10px;
+    cursor: pointer;
+}.text-light li:last-of-type{
+    border-right: none;
+}.table{
+    margin-bottom: 80px;
+}.text-light li:active{
+    opacity: 0.4;
+    transition: all 0.4s
 }
-
+@media only screen and (max-width: 600px) {
+    .bottom-nav{
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        left: 4.5%;
+        text-align: center;
+    }
+  }
  
