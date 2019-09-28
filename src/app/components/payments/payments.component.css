@@ -31,28 +31,5 @@
     clear: both;
     overflow: hidden;
 }
-@media only screen and (max-width: 600px) {
-    .fa{
-        float: right;
-        position: relative;
-        top: -24px;
-        display: block;
-         
-    }
-    .action-div input[type="text"]{
-        width: 100%;
-    }
-    .action-div{
-        
-        margin-bottom: 20px;
-     
-        
-    }td i{
-        top: 5px;
-        float: left;
-       
-    }tbody{
-        font-size: 15px;
-    }
-  }
+
  

@@ -1,11 +1,27 @@
 import { Injectable } from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http'
+import {AuthServiceService} from '../services/auth-service.service'
+import { Router} from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalService {
+
+  positions:any
+  id:any
+  collectibles:any
   server: string = "http://192.168.1.50/phonics_server/client-script/"
-  constructor(public http: Http) { }
+  constructor(public router: Router,public auth:AuthServiceService,public http: Http) {
+    this.positions = new Array()
+   }
+
+   signout(){
+    var fname = window.localStorage.getItem("fname")
+    if(fname == "" || fname == null || fname == undefined){
+      this.auth.logged = false
+      this.router.navigate(["/login"])
+    }
+   }
 
   postData(body, file){
     let type = "application/json; charset=UTF-8"

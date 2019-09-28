@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import {GlobalService} from '../../services/global.service'
+import {AuthServiceService} from '../../services/auth-service.service'
+import * as $ from 'jquery'
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -9,9 +11,22 @@ import {GlobalService} from '../../services/global.service'
 export class MainComponent implements OnInit {
   username:any
   password:any
-  constructor(private router:Router,public method: GlobalService) { }
+  constructor(private auth:AuthServiceService,private router:Router,public method: GlobalService) { }
 
   ngOnInit() {
+    var fname = window.localStorage.getItem("fname")
+    if(fname == "" || fname == null || fname == undefined){
+      this.auth.logged = false
+      this.router.navigate(["/login"]).then(() =>{
+       
+         
+      })
+    }else{
+      this.router.navigate(["/member"]).then(() =>{
+       
+         
+      })
+    }
   }
   logged(){
     let data = {
@@ -28,14 +43,15 @@ export class MainComponent implements OnInit {
       },err=>{
 
       },() =>{
+         
         if(res.message == "success"){
-          alert("Successfully log on")
-          that.router.navigate(["/member"]).then(() =>{
-       
+          that.auth.logged = true
             window.localStorage.setItem("position",res.position)
-            window.localStorage.setItem("fname",res.position)
-            window.localStorage.setItem("lname",res.position)
-          })
+            window.localStorage.setItem("fname",res.data.fname)
+            window.localStorage.setItem("lname",res.data.lname)
+            window.localStorage.setItem("id",res.data.id)
+          
+          that.router.navigate(["/member"]) 
         }
       })
     }else{
