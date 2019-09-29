@@ -1,5 +1,6 @@
 
 <div class="container">
+  
         <div id="cover-spin"></div>
             <div class="action-div">
               <div class="alert alert-success" role="alert" *ngIf="method.customerData">
@@ -12,11 +13,21 @@
                       <li>Product Price: {{method.customerData.price.price}}</li>
                       <li>Term: {{method.customerData.price.term}}</li>
                       <li>Date Delivery: {{method.customerData.customer.date_sold}}</li>
+                      <li>Status: {{method.customerData.customer.status}}</li>
                     </ul>
               </div>
           
                   
             </div>
+            <div class="row top-nav bg-primary">
+      
+              <ul class="list-inline text-light">
+                  
+                  <li class="list-inline-item" data-toggle="modal" data-target="#exampleModalCenter" (click)="status()">Update Status</li>
+                  <li class="list-inline-item" data-toggle="modal" data-target="#exampleModalCenter" (click)="resched()">Reschedule</li>
+                  <li class="list-inline-item" data-toggle="modal" data-target="#exampleModalCenter" (click)='payment()'>Update Payment</li>
+                </ul>
+          </div>
             <h3>Payment History</h3>
         <table class="table">
             <thead class="thead-dark">
@@ -28,7 +39,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of payments">
+              <tr *ngFor="let item of method.payments">
                  
                 <td >{{item.amount}}</td>
                 <td >{{item.or}}</td>
@@ -37,13 +48,14 @@
             
             </tbody>
           </table>
+         
           <div class="row bottom-nav bg-primary">
       
               <ul class="list-inline text-light">
                   
-                  <li class="list-inline-item">Update Status</li>
-                  <li class="list-inline-item">Reschedule</li>
-                  <li class="list-inline-item">Update Payment</li>
+                  <li class="list-inline-item" data-toggle="modal" data-target="#exampleModalCenter" (click)="status()">Update Status</li>
+                  <li class="list-inline-item" data-toggle="modal" data-target="#exampleModalCenter" (click)="resched()">Reschedule</li>
+                  <li class="list-inline-item" data-toggle="modal" data-target="#exampleModalCenter" (click)='payment()'>Update Payment</li>
                 </ul>
           </div>
     </div>

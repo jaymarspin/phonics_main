@@ -1,24 +1,24 @@
 
 <div class="container">
-    <div id="cover-spin"></div>
+    
         <div class="action-div">
                 
-         
+          
                 <div class="search-wrapper"><input id="search" [(ngModel)]="search" type="text" placeholder="Search Employee">
                 <i class="fa fa-search"></i></div>
                 <div class="alert alert-dark" role="alert">
                        
-                  List of collection date <strong>{{dater}}</strong>
+                  List of collection date <strong>{{method.dater}}</strong>
               </div>
               <div class="input-group input-group-sm">
                
-                <input type="date" (change)="dateChange()" [(ngModel)]="dater" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                <input type="date" (change)="dateChange()" [(ngModel)]="method.dater" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
               </div>
               
         </div>
     <table class="table">
         <thead class="thead-dark">
-          <tr>
+          <tr> 
              
             <th>Full Name</th>
             <th>Due Date</th>
@@ -28,9 +28,9 @@
         <tbody>
           <tr *ngFor="let item of method.collectibles">
              
-            <td *ngIf="dater == item.dater && search == '' || search.toLowerCase() == item.customer.lname.toLowerCase() || search.toLowerCase() == item.customer.fname.toLowerCase()">{{item.customer.lname}}, {{item.customer.fname}}</td>
-            <td *ngIf="dater == item.dater && search == '' || search.toLowerCase() == item.customer.lname.toLowerCase() || search.toLowerCase() == item.customer.fname.toLowerCase()">{{item.dater}}</td>
-            <td *ngIf="dater == item.dater && search == '' || search.toLowerCase() == item.customer.lname.toLowerCase() || search.toLowerCase() == item.customer.fname.toLowerCase()"> <button class="btn btn-danger" (click)="paymantNav(item.customer.id,item)"><i class="fa fa-dollar"></i>payments</button></td>
+            <td *ngIf="method.dater == item.dater && search == '' || search.toLowerCase() == item.customer.lname.toLowerCase() || search.toLowerCase() == item.customer.fname.toLowerCase()">{{item.customer.lname}}, {{item.customer.fname}}</td>
+            <td *ngIf="method.dater == item.dater && search == '' || search.toLowerCase() == item.customer.lname.toLowerCase() || search.toLowerCase() == item.customer.fname.toLowerCase()">{{item.dater}}</td>
+            <td *ngIf="method.dater == item.dater && search == '' || search.toLowerCase() == item.customer.lname.toLowerCase() || search.toLowerCase() == item.customer.fname.toLowerCase()"> <button class="btn btn-danger" (click)="paymantNav(item.customer.id,item)"><i class="fa fa-dollar"></i>payments</button></td>
           </tr>
         
         </tbody>

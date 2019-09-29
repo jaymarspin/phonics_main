@@ -1,0 +1,10 @@
+.modal-label{
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+}.input-group-text{
+    width: 100px;
+}.form-control,.input-group-prepend{
+    margin-bottom: 10px;
+}

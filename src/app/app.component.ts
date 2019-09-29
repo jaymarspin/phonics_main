@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import {AuthServiceService} from './services/auth-service.service'
+import { Component } from '@angular/core'; 
 import { Router} from '@angular/router';
+import {GlobalService} from './services/global.service'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +9,9 @@ import { Router} from '@angular/router';
 export class AppComponent {
   title = 'main';
 
-  constructor(public auth:AuthServiceService,private router:Router){
+  constructor(public method: GlobalService, private router:Router){
+            this.method.positions = window.localStorage.getItem("position").split(",");
     
+            this.method.id = window.localStorage.getItem("id")
   }
 }

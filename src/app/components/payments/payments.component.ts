@@ -10,22 +10,26 @@ import * as $ from 'jquery'
 export class PaymentsComponent implements OnInit,OnDestroy {
   id:any
  
-  payments:any
+ 
   constructor(public method: GlobalService,private route: ActivatedRoute) { }
 
 
   ngOnDestroy(){
     delete(this.method.customerData) 
+    delete(this.method.customerId) 
   
   }
   ngOnInit() {
+    this.method.menu = true
+ 
      if(!this.method.customerData){
       this.method.customerData = JSON.parse(window.localStorage.getItem("customer"))
-      console.log(this.method.customerData)
+       
       
      }
     this.id = this.route.snapshot.paramMap.get("id")
-   
+     this.method.customerId = this.route.snapshot.paramMap.get("id")
+     
     let data = {
       id: this.id
     
@@ -38,8 +42,21 @@ export class PaymentsComponent implements OnInit,OnDestroy {
     }, err =>{
 
     },() =>{
-      that.payments = res
+      that.method.payments = res
     })
+  }
+
+  payment(){
+    this.method.event = "payment";
+    this.method.title = "Adding Payment"
+  }
+  resched(){
+    this.method.event = "resched";
+    this.method.title = "Rescheduling"
+  }
+  status(){
+    this.method.event = "status";
+    this.method.title = "Updating Status"
   }
 
 }

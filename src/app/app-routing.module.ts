@@ -5,6 +5,7 @@ import { MainComponent } from './components/main/main.component';
 import { MemberpanelComponent } from './components/memberpanel/memberpanel.component'
 import {AuthGuard} from './auth.guard'
 import { PaymentsComponent } from './components/payments/payments.component'
+import { NsaleComponent } from './components/nsale/nsale.component'
 const routes: Routes = [
   { path: '',
   redirectTo: '/login',
@@ -13,6 +14,7 @@ const routes: Routes = [
 {path: 'login', component: MainComponent},
 {path: 'member', component: MemberpanelComponent, canActivate: [AuthGuard]},
 {path: 'payments/:id', component: PaymentsComponent, canActivate: [AuthGuard]},
+{path: 'nsale', component: NsaleComponent, canActivate: [AuthGuard]},
 
 ];
 

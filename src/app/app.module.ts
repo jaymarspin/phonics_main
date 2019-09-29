@@ -9,7 +9,8 @@ import {HttpModule } from '@angular/http';
 import { MemberpanelComponent } from './components/memberpanel/memberpanel.component';
 import { MenuComponent } from './includes/menu/menu.component';
 import { ModalComponent } from './modals/modal/modal.component';
-import { PaymentsComponent } from './components/payments/payments.component'
+import { PaymentsComponent } from './components/payments/payments.component';
+import { NsaleComponent } from './components/nsale/nsale.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { PaymentsComponent } from './components/payments/payments.component'
     MemberpanelComponent,
     MenuComponent,
     ModalComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    NsaleComponent
   ],
   imports: [
     BrowserModule,

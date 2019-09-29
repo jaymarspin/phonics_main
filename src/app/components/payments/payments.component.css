@@ -55,6 +55,9 @@
     opacity: 0.4;
     transition: all 0.4s
 }
+.bottom-nav{
+    display: none;
+}
 @media only screen and (max-width: 600px) {
     .bottom-nav{
         position: fixed;
@@ -63,6 +66,9 @@
         width: 100%;
         left: 4.5%;
         text-align: center;
+        display: block;
+    }.top-nav{
+        display: none;
     }
   }
  

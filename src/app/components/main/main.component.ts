@@ -52,6 +52,8 @@ export class MainComponent implements OnInit {
             window.localStorage.setItem("id",res.data.id)
           
           that.router.navigate(["/member"]) 
+        }else{
+          alert(res.message)
         }
       })
     }else{

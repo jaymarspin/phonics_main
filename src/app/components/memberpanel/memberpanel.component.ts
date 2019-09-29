@@ -9,40 +9,41 @@ import * as $ from 'jquery'
 })
 export class MemberpanelComponent implements OnInit {
   search:any
-  dater:any
+ 
   
   constructor(public method: GlobalService,private router:Router) {
     this.search = ""
    }
 
   ngOnInit() {
-
+    this.method.menu = true
+    
     this.method.signout()
     // window.localStorage.removeItem("fname")
-   this.method.positions = window.localStorage.getItem("position").split(",");
-    
-   this.method.id = window.localStorage.getItem("id")
+   
    var that = this
-   if(!that.method.collectibles){
+   if(!that.method.collectibles || that.method.refresh == true){
     this.method.positions.forEach(element => {
       if(element == "Account Officer"){
         let data = {
           id: that.method.id
         }
         let res:any
+        $("body #cover-spin").fadeIn(200)
        this.method.postData(data,"get-collectibles.php").subscribe(Response =>{
         
          res = Response.json()
          console.log(res)
          
        },err =>{
- 
+        alert("Network Error! "+err)
        },() =>{
-        
+        $("body #cover-spin").fadeOut(200)
+        that.method.refresh = false
          that.method.collectibles = res.customer
          
-         that.dater = res.now
-         console.log(that.dater)
+         that.method.dater = res.now
+        
        })
       }
     });
@@ -64,7 +65,7 @@ export class MemberpanelComponent implements OnInit {
   }
 
   dateChange(){
-    console.log(this.dater)
+     
   }
 
 }
