@@ -7,4 +7,15 @@
     width: 100px;
 }.form-control,.input-group-prepend{
     margin-bottom: 10px;
+}.termCollection{
+    float: left;
+    position: relative;
+    display: block;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #dedede;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    
 }

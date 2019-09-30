@@ -26,6 +26,17 @@ export class ModalComponent implements OnInit {
     this.dater = this.method.dater
     
   }
+  agentRemove(item,i){
+   
+    this.method.agents.push(item)
+    this.method.agentsCollection.splice(i,1)
+  }
+  selectedAgent(item,i){
+   
+    this.method.agentsCollection.push(item)
+    this.method.agents.splice(i,1)
+    console.log(this.method.agentsCollection)
+  } 
 
   submit(){
     if(this.method.event == "payment"){

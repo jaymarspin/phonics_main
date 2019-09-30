@@ -43,7 +43,7 @@
                                     <input type="date" [(ngModel)]="dater" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
                                 </div>
         </div>
-
+        
         <div class="modal-body" *ngIf="method.event == 'resched'">
           <div class="input-group input-group-sm">
             <div class="input-group-prepend">
@@ -63,6 +63,37 @@
               <option *ngFor="let item of statusCollection" [value]="item.toLowerCase()">{{item}}</option>
             </select>
           </div>
+        </div>
+
+
+        <div class="modal-body" *ngIf="method.event == 'agents'">
+            <div class="row">
+                <span class="termCollection" *ngFor="let item of method.agentsCollection;index as i" [attr.data-index]="i" (click)="agentRemove(item,i)">{{item.emp.lname}},{{item.emp.fname}} <i class="fa fa-close"></i></span>
+
+        </div>
+          <table class="table table-sm" id="customersTable">
+            <thead>
+              <tr>
+                  <th>Full Name</th>
+                <th>City</th>
+                <th>Barangay</th>
+                
+                
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+            
+              <tr *ngFor="let item of method.agents;index as i" [attr.data-index]="i" (click)="selectedAgent(item,i)">
+                 <td>{{item.emp.lname}}, {{item.emp.fname}}</td>
+                 <td>{{item.emp.city}}</td>
+                 <td>{{item.emp.brgy}}</td>
+             
+              </tr>
+     
+            </tbody>
+          </table>
         </div>
 
 

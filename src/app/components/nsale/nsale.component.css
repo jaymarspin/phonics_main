@@ -9,7 +9,23 @@
     height: auto;
     overflow: hidden;
     position: relative;
-}@media only screen and (max-width: 600px) {
+
+}.termCollection{
+    float: left;
+    position: relative;
+    display: block;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #dedede;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    
+}.row{
+    padding-left: 20px;
+}
+
+@media only screen and (max-width: 600px) {
     .wrapper{
         width: 100%;
     }

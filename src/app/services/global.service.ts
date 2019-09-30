@@ -18,8 +18,13 @@ export class GlobalService {
   title:any
   refresh:any = false
   menu:any = false
+
+  agents:any
+  agentsCollection:any
   constructor(public router: Router,public auth:AuthServiceService,public http: Http) {
     this.positions = new Array()
+    this.agents = new Array()
+    this.agentsCollection = new Array();
    }
 
    signout(){

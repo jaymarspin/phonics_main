@@ -81,12 +81,20 @@
       <label for="formGroupExampleInput2">Or #(Optional)</label>
       <input type="number" [(ngModel)] ="or" class="form-control" id="formGroupExampleInput2" placeholder="Or #(Optional)">
   </div>
+  <div class="row">
+      <span class="termCollection" *ngFor="let item of method.agentsCollection" (click)="agentFurther()" data-toggle="modal" data-target="#exampleModalCenter">{{item.emp.lname}},{{item.emp.fname}} <i class="fa fa-close"></i></span>
+
+</div>
+  <div class="form-group">
+    
+    <button class="btn btn-secondary" (click)="agentFurther()" data-toggle="modal" data-target="#exampleModalCenter">Add Agent</button>
+</div>
   <div class="alert alert-success" role="alert" *ngIf="success">
       <strong>Well done!</strong> You successfully Added a new sale
   </div>
   <div class="alert alert-danger" role="alert" *ngIf="error">
       <strong>Oh snap!</strong> Something went wrong
-    </div>
+  </div>
  <button class="btn btn-primary" (click)="submit()">Submit</button>
 </div>
 </div>

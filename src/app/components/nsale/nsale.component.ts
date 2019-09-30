@@ -146,7 +146,8 @@ export class NsaleComponent implements OnInit {
         schedule: this.schedule,
         delivery: this.delivery,
         downpayment: this.downpayment,
-        or: this.or
+        or: this.or,
+        agents: this.method.agentsCollection
       }
     
       
@@ -178,6 +179,8 @@ export class NsaleComponent implements OnInit {
          delete(that.delivery)
          delete(that.downpayment)
          delete(that.or)
+         delete(this.method.agents)
+         delete(this.method.agentsCollection)
         }else{
           that.success = false
           that.error = true
@@ -187,6 +190,26 @@ export class NsaleComponent implements OnInit {
     }else{
       alert("dont leave a field empty")
     }
+  }
+
+  agentFurther(){
+    if(!this.method.agents || this.method.agents.length == 0){
+      $("body #cover-spin").fadeIn(200)
+    this.method.event = "agents";
+    this.method.title = "Select Agents"
+    let res:any
+
+    this.method.postData(null,"agents.php").subscribe(Response =>{
+      res = Response.json()
+    }, err =>{
+      alert("Network Error"+err)
+    },() =>{
+      $("body #cover-spin").fadeOut(200)
+      this.method.agents = res
+       
+    })
+    }
+    
   }
 
 
