@@ -114,6 +114,7 @@ export class ModalComponent implements OnInit {
        var that = this
        $("body #cover-spin").fadeIn(200)
         this.method.postData(data,"add-payment.php").subscribe(Response =>{
+          console.log(Response)
           res = Response.json()
         },err =>{
           alert("Network Error!")

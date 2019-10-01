@@ -20,8 +20,12 @@ export class MemberpanelComponent implements OnInit {
     
     this.method.signout()
     // window.localStorage.removeItem("fname")
-   
+   if(!this.method.id){
+    this.method.id = window.localStorage.getItem("id")
+   }
    var that = this
+
+   console.log(this.method.id)
    if(!that.method.collectibles || that.method.refresh == true){
     this.method.positions.forEach(element => {
       if(element == "Account Officer"){

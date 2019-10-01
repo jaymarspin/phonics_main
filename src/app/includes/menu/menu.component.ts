@@ -16,6 +16,13 @@ export class MenuComponent implements OnInit {
   signout(){
     window.localStorage.removeItem("fname")
     this.router.navigate(["/login"])
+    delete(this.method.id)
+    delete(this.method.customerData)
+    delete(this.method.collectibles)
+    delete(this.method.agentsCollection)
+    delete(this.method.agents)
+    delete(this.method.customerId)
+    delete(this.method.agentsCollection)
     this.method.menu = false
   }
 

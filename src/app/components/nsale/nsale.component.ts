@@ -42,6 +42,7 @@ export class NsaleComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.method.signout()
     this.method.menu = true
     var that= this
     let ress:any

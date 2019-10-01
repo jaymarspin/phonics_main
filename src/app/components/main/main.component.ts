@@ -45,11 +45,20 @@ export class MainComponent implements OnInit {
       },() =>{
          
         if(res.message == "success"){
+
+          delete(this.method.id)
+    delete(this.method.customerData)
+    delete(this.method.collectibles)
+    delete(this.method.agentsCollection)
+    delete(this.method.agents)
+    delete(this.method.customerId)
+    delete(this.method.agentsCollection)
           that.auth.logged = true
             window.localStorage.setItem("position",res.position)
             window.localStorage.setItem("fname",res.data.fname)
             window.localStorage.setItem("lname",res.data.lname)
             window.localStorage.setItem("id",res.data.id)
+            that.method.id = res.data.id
           
           that.router.navigate(["/member"]) 
         }else{

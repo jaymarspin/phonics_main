@@ -32,6 +32,10 @@ export class GlobalService {
     if(fname == "" || fname == null || fname == undefined){
       this.auth.logged = false
       this.router.navigate(["/login"])
+            window.localStorage.removeItem("position",)
+            window.localStorage.removeItem("fname")
+            window.localStorage.removeItem("lname")
+            window.localStorage.removeItem("id")
     } 
    }
 

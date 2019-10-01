@@ -20,12 +20,16 @@ export class PaymentsComponent implements OnInit,OnDestroy {
   
   }
   ngOnInit() {
+    this.method.signout()
     this.method.menu = true
  
      if(!this.method.customerData){
       this.method.customerData = JSON.parse(window.localStorage.getItem("customer"))
        
       
+     }
+     if(!this.method.id){
+       this.method.id = window.localStorage.getItem("id")
      }
     this.id = this.route.snapshot.paramMap.get("id")
      this.method.customerId = this.route.snapshot.paramMap.get("id")
