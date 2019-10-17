@@ -39,6 +39,7 @@
                  
                 <th>Amount</th>
                 <th>Or #</th>
+                <th>Collectors</th>
                 <th>Date Paid</th>
               </tr>
             </thead>
@@ -47,6 +48,7 @@
                  
                 <td >{{item.amount}}</td>
                 <td >{{item.or}}</td>
+                <td>{{item.collector.lname}}, {{item.collector.fname}}</td>
                 <td >{{item.date_paid}}</td>
                 </tr>
             
