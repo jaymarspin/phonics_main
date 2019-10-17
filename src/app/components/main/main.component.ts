@@ -17,6 +17,7 @@ export class MainComponent implements OnInit {
     var fname = window.localStorage.getItem("fname")
     if(fname == "" || fname == null || fname == undefined){
       this.auth.logged = false
+      
       this.router.navigate(["/login"]).then(() =>{
        
          
@@ -59,7 +60,7 @@ export class MainComponent implements OnInit {
             window.localStorage.setItem("lname",res.data.lname)
             window.localStorage.setItem("id",res.data.id)
             that.method.id = res.data.id
-          
+          this.method.refresh = true
           that.router.navigate(["/member"]) 
         }else{
           alert(res.message)

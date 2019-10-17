@@ -10,7 +10,10 @@ export class AppComponent {
   title = 'main';
 
   constructor(public method: GlobalService, private router:Router){
-            this.method.positions = window.localStorage.getItem("position").split(",");
+            if(window.localStorage.getItem("position")){
+              this.method.positions = window.localStorage.getItem("position").split(",");
+            }
+            
     
             this.method.id = window.localStorage.getItem("id")
   }

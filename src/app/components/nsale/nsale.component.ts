@@ -35,6 +35,7 @@ export class NsaleComponent implements OnInit {
 
   success:any = false
   error:any = false
+ pass = false
   constructor(public method: GlobalService,public changeDetection: ChangeDetectorRef) {
     this.provinceCollection = new Array()
     this.cityCollection = new Array()
@@ -43,6 +44,16 @@ export class NsaleComponent implements OnInit {
 
   ngOnInit() {
     this.method.signout()
+    
+
+    this.method.positions.forEach(element => {
+      console.log(element)
+      if(element == "Field Supervisor"){
+        this.pass = true
+      }
+    });
+    
+    
     this.method.menu = true
     var that= this
     let ress:any
@@ -153,41 +164,46 @@ export class NsaleComponent implements OnInit {
     
       
       let res:any
-      this.method.postData(data,"add_customer.php").subscribe(Response =>{
-        console.log(Response)
-        res = Response.json()
-      }, err =>{
-        alert("Network Error! "+err)
-      },() =>{
-        if(res.message == "success"){
-          that.success = true
-          that.error = false
-          alert("Successs")
-    
- 
-         delete(that.fname)
-         delete(that.lname)
-         delete(that.address)
-         delete(that.brgyId)
-         delete(that.provinceId)
-         delete(that.cityId)
-         delete(that.contact)
-         delete(that.productId)
-         delete(that.pc)
-         delete(that.occupation)
-         delete(that.termVal)
-         delete(that.schedule)
-         delete(that.delivery)
-         delete(that.downpayment)
-         delete(that.or)
-         delete(this.method.agents)
-         delete(this.method.agentsCollection)
-        }else{
-          that.success = false
-          that.error = true
-          alert(res.message)
-        }
-      })
+      if(this.pass == true){
+        this.method.postData(data,"add_customer.php").subscribe(Response =>{
+          console.log(Response)
+          res = Response.json()
+        }, err =>{
+          alert("Network Error! "+err)
+        },() =>{
+          if(res.message == "success"){
+            that.success = true
+            that.error = false
+            alert("Successs")
+      
+   
+           delete(that.fname)
+           delete(that.lname)
+           delete(that.address)
+           delete(that.brgyId)
+           delete(that.provinceId)
+           delete(that.cityId)
+           delete(that.contact)
+           delete(that.productId)
+           delete(that.pc)
+           delete(that.occupation)
+           delete(that.termVal)
+           delete(that.schedule)
+           delete(that.delivery)
+           delete(that.downpayment)
+           delete(that.or)
+           delete(this.method.agents)
+           delete(this.method.agentsCollection)
+          }else{
+            that.success = false
+            that.error = true
+            alert(res.message)
+          }
+        })
+      }else{
+        alert("You are not a field supervisor")
+      }
+      
     }else{
       alert("dont leave a field empty")
     }

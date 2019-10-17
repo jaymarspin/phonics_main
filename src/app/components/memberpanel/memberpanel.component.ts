@@ -25,7 +25,7 @@ export class MemberpanelComponent implements OnInit {
    }
    var that = this
 
-   console.log(this.method.id)
+    
    if(!that.method.collectibles || that.method.refresh == true){
     this.method.positions.forEach(element => {
       if(element == "Account Officer"){
